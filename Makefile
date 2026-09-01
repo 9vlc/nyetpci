@@ -1,8 +1,4 @@
-PROJDIR:= ${.PARSEDIR}
-OBJS_ALL:=
-EXTRAS_ALL:=
-
-.include "mk/env.mk"
+.include "mb/init.mk"
 .include "src/dirs.mk"
 
 .if !make(clean)

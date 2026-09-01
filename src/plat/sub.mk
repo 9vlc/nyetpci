@@ -17,4 +17,4 @@ SRCS:= dummy/io.c dummy/pci.c dummy/ctx.c
 .  error "Unknown platform: ${PLAT_REAL}"
 .endif
 
-.include "../../mk/gen.mk"
+.include "${MBDIR}/gen.mk"

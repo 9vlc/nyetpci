@@ -3,4 +3,4 @@ SRCS:= pci.c bar.c find.c
 SRCS+= etc.c
 .endif
 
-.include "../../mk/gen.mk"
+.include "${MBDIR}/gen.mk"
