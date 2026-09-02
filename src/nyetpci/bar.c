@@ -36,6 +36,24 @@ nyetpci_bar_is_64bit(uint32_t bar)
 }
 
 /*
+ * Check if a BAR is prefetchable
+ *
+ * Returns:
+ *   1 - Yes
+ *   0 - No
+ */
+int
+nyetpci_bar_is_prefetchable(uint32_t bar)
+{
+	if (nyetpci_bar_is_ioport(bar)) {
+		return (0);
+	}
+
+	return ((bar & 0x08) != 0);
+}
+
+
+/*
  * Get the physical address of a BAR
  *
  * Returns:
