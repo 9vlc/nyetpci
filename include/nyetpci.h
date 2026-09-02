@@ -85,13 +85,19 @@ int nyetpci_parse_sel(const char *str, struct nyetpci_sel *sel);
 /*
  * Platform-independent
  */
-void nyetpci_put_sel(struct nyetpci_sel *sel);
 int nyetpci_is_gpu(struct nyetpci_ctx *pci);
+
+int nyetpci_get_vendor(struct nyetpci_ctx *pci, uint16_t *vendor);
+int nyetpci_get_device(struct nyetpci_ctx *pci, uint16_t *device);
+int nyetpci_get_subvendor(struct nyetpci_ctx *pci, uint16_t *subvendor);
+int nyetpci_get_subdevice(struct nyetpci_ctx *pci, uint16_t *subdevice);
+
 int nyetpci_bar_is_ioport(uint32_t bar);
 int nyetpci_bar_is_64bit(uint32_t bar);
 int nyetpci_bar_is_prefetchable(uint32_t bar);
 uint64_t nyetpci_bar_get_paddr(struct nyetpci_ctx *pci, int reg,
 	uint64_t *len);
+
 uint32_t nyetpci_find_devices(struct nyetpci_ctx *pci,
 	struct nyetpci_filter *filt, int flags,
 	struct nyetpci_sel *matches, uint32_t matches_len);
