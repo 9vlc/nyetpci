@@ -76,6 +76,12 @@ int nyetpci_cfg_write(struct nyetpci_ctx *pci, int reg, int width,
 	uint32_t *val);
 int nyetpci_device_exists(struct nyetpci_ctx *pci);
 
+/* Not platform dependent but for now guarded because of libc */
+#if !defined(NYETPCI_PLAT_METAL_CAM) && !defined(NYETPCI_PLAT_METAL_ECAM)
+int nyetpci_parse_sel(const char *str, struct nyetpci_sel *sel);
+#endif
+
+
 /*
  * Platform-independent
  */
