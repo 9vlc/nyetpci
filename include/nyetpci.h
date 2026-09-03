@@ -34,7 +34,7 @@ struct nyetpci_plat {
 
 /* PCI device selector */
 struct nyetpci_sel {
-	uint16_t domain;
+	uint16_t dom;
 	uint8_t bus;
 	uint8_t dev;
 	uint8_t func;

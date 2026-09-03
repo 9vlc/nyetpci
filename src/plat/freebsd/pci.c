@@ -17,7 +17,7 @@ nyetpci_device_exists(struct nyetpci_ctx *pci)
 {
 	struct pci_io io = {
 		.pi_sel = {
-			pci->sel.domain,
+			pci->sel.dom,
 			pci->sel.bus,
 			pci->sel.dev,
 			pci->sel.func

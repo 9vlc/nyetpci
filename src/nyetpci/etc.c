@@ -50,7 +50,7 @@ nyetpci_parse_sel(const char *str, struct nyetpci_sel *sel)
 			sel->func = ((i > 2) ? selarr[--i] : 0);
 			sel->dev = ((i > 0) ? selarr[--i] : 0);
 			sel->bus = ((i > 0) ? selarr[--i] : 0);
-			sel->domain = ((i > 0) ? selarr[--i] : 0);
+			sel->dom = ((i > 0) ? selarr[--i] : 0);
 
 			return (0);
 		}

@@ -21,7 +21,7 @@ nyetpci_cfg_read(struct nyetpci_ctx *pci, int reg, int width,
 
 	struct pci_io io = {
 		.pi_sel = {
-			pci->sel.domain,
+			pci->sel.dom,
 			pci->sel.bus,
 			pci->sel.dev,
 			pci->sel.func
@@ -32,7 +32,7 @@ nyetpci_cfg_read(struct nyetpci_ctx *pci, int reg, int width,
 
 	if (ioctl(pci->plat.pcifd, PCIOCREAD, &io) < 0) {
 		LOGV("ioctl(PCIOCREAD) on pci%u:%u:%u:%u @ 0x%02X W%d threw %d",
-			pci->sel.domain, pci->sel.bus, pci->sel.dev,
+			pci->sel.dom, pci->sel.bus, pci->sel.dev,
 			pci->sel.func, reg, width, errno);
 		return (-1);
 	}
@@ -52,7 +52,7 @@ nyetpci_cfg_write(struct nyetpci_ctx *pci, int reg, int width,
 
 	struct pci_io io = {
 		.pi_sel = {
-			pci->sel.domain,
+			pci->sel.dom,
 			pci->sel.bus,
 			pci->sel.dev,
 			pci->sel.func
@@ -64,7 +64,7 @@ nyetpci_cfg_write(struct nyetpci_ctx *pci, int reg, int width,
 
 	if (ioctl(pci->plat.pcifd, PCIOCWRITE, &io) < 0) {
 		LOGV("ioctl(PCIOCWRITE) on pci%u:%u:%u:%u @ 0x%02X W%d threw %d",
-			pci->sel.domain, pci->sel.bus, pci->sel.dev,
+			pci->sel.dom, pci->sel.bus, pci->sel.dev,
 			pci->sel.func, reg, width, errno);
 		return (-1);
 	}

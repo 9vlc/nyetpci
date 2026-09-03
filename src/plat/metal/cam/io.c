@@ -73,7 +73,7 @@ nyetpci_cfg_read(struct nyetpci_ctx *pci, int reg, int width, uint32_t *val)
 		return (-1);
 	}
 
-	if (pci->sel.domain != 0) {
+	if (pci->sel.dom != 0) {
 		LOG("CAM can only access domain 0");
 		return (-1);
 	}
@@ -106,7 +106,7 @@ nyetpci_cfg_write(struct nyetpci_ctx *pci, int reg, int width, uint32_t *val)
 		return (-1);
 	}
 
-	if (pci->sel.domain != 0) {
+	if (pci->sel.dom != 0) {
 		LOG("CAM can only access domain 0");
 		return (-1);
 	}
