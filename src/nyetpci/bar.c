@@ -105,7 +105,7 @@ nyetpci_bar_get_paddr(struct nyetpci_ctx *pci, int reg, uint64_t *len)
 	uint64_t bar_base;
 
 	if (is_64) {
-		LOG("This is a 64-bit BAR!");
+		LOG("64-bit BAR");
 		if (nyetpci_cfg_read(pci, reg + 4, 4, &upper_save)) {
 			return (0);
 		}
@@ -118,6 +118,7 @@ nyetpci_bar_get_paddr(struct nyetpci_ctx *pci, int reg, uint64_t *len)
 
 	if (len == NULL) {
 		LOG("Not measuring the BAR");
+		LOGV("BAR 0%02X B:%02lX L:N/A", reg, bar_base);
 		return (bar_base);
 	}
 
@@ -200,5 +201,6 @@ cleanup_io:
 
 	uint64_t len_calc = (~size_mask) + 1;
 	*len = (is_64 ? len_calc : len_calc & UINT32_MAX);
+	LOGV("BAR 0%02X B:%02lX L:%02lX", reg, bar_base, *len);
 	return (bar_base);
 }
